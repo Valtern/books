@@ -95,45 +95,85 @@ In step 1 the code likely shows a simple synchronous or basic asynchronous call 
 
 # Practicum 6 Task
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+2. Jika Anda tidak melihat animasi loading tampil, kemungkinan itu berjalan sangat cepat. Tambahkan delay pada method getPosition() dengan kode await Future.delayed(const Duration(seconds: 3));
+Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 12".
+
 
 # Answer for practicum 6
 
+1. 
 
+![alt text](image-2.png)
+
+2. 
+
+In phone:
+
+![alt text](image-3.png)
+
+GIF result (on web since i dont have a screen recorder that lets me do gif): 
+
+![alt text](724ece8db13b3ea226e13b236022f999.gif)
+
+Yes, the loading animation appears after adding the delay. When running in the browser we do not get real GPS coordinates because the browser cannot access the device’s native location services and the Geolocator plugin relies only on the browser’s limited web geolocation API, which does not provide actual device GPS data on localhost.
 
 # Practicum 7 Task
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?
+
+2. Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
+
 
 # Answer for practicum 7
 
+1. 
 
+![alt text](efa83845e5c7fde005519a11240930f9.gif)
+
+Yes our UI is different from the previous practicum. We are now using a FutureBuilder which the material states is a more efficient clean and reactive way for our UI to work with future data.
+
+2.  
+
+![alt text](7b1afcff62d8137d8e3f77e215c6fd14.gif)
+
+Yes our UI is different from the previous step. This is because we added specific code to handle errors. Our UI will now show a text message if an error happens which it did not do before.
 
 # Practicum 8 Task
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+Silakan ganti dengan warna tema favorit Anda.
+2. Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+Gantilah 3 warna pada langkah 5 dengan warna favorit Anda!
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 16".
+
 
 # Answer for practicum 8
 
+1.  
+
+![alt text](image-4.png)
+![alt text](image-5.png)
+
+2. 
+
+![alt text](0011b87bca569951ea3b431717de3ea0.gif)
+
+When we click the 'Change Color' button on the first screen, we navigate to the second screen. This happens because the button calls our _navigateAndGetColor method which uses Navigator.push to show the NavigationSecond screen.
+
+When we click any of the color buttons (Red, Green, or Blue) on the second screen, we go back to the first screen, and the first screen's background changes to that specific color. This happens because those buttons use Navigator.pop to return to the previous screen and pass the chosen color back as a result. Our _navigateAndGetColor method was waiting for this result with await and then uses setState to update the background color.
 
 # Practicum 9 Task
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+Gantilah 3 warna pada langkah 3 dengan warna favorit Anda!
+Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W11: Soal 17".
 
 # Answer for practicum 9
+
+1. 
+
+![alt text](90cd1bd501f89193227ee8d81f0c78f5.gif)
+
+When we click the 'Change Color' button, it calls our _showColorDialog method. This method uses await showDialog to open an alert box with the title "Very important question". When we click a color button like 'Red' or 'Green', its onPressed function updates our color variable to that new color and then closes the dialog. After the dialog is closed, the await finishes and the setState function is called. This tells the screen to rebuild, and our Scaffold's background color is updated to the new color we just selected.

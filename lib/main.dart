@@ -3,6 +3,9 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'package:books/geolocation.dart';
+import 'package:books/navigation_first.dart'; 
+import 'package:books/navigation_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const FuturePage(),
+      home: const NavigationDialogScreen(), 
     );
   }
 }
@@ -124,7 +127,7 @@ Future handleError() async {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Back from the Future'),
+        title: const Text('Antonius Kaharap Kautsar'),
       ),
       body: Center(
         child: Column(
@@ -133,39 +136,6 @@ Future handleError() async {
             ElevatedButton(
               child: const Text('GO!'),
               onPressed: () {
-                // setState(() {
-
-                // });
-                // getData().then((value) {
-                //   result = value.body.toString().substring(0, 450);
-                //   setState(() {});
-                // }).catchError((_) {
-                //   result = 'An error occured';
-                //   setState(() { });
-                // });
-
-                // count();
-
-                // getNumber().then((value) {
-                //   setState(() {
-                //     result = value.toString();
-                //   });
-                // }).catchError((e) {
-                //   result = 'An error occurred';
-                // });
-
-                // returnFG();
-
-                // returnError().then((value) {
-                //     setState(() {
-                //     result = 'Success';
-                //     });
-                // }).catchError((onError){
-                //       setState(() {
-                //       result = onError.toString();
-                //     }) ;
-                // }).whenComplete(() => print('Complete'));
-
                 handleError();
 
             },
